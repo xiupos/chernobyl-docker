@@ -1,4 +1,4 @@
-# RBMK-1000 Chernobyl Nuclear Reactor Simulator on Docker
+# ☢️ RBMK-1000 Chernobyl Nuclear Reactor Simulator on Docker 🐳
 
 It works on X11, and depends on docker.
 
@@ -6,14 +6,16 @@ It works on X11, and depends on docker.
 
 ```bash
 docker compose up
-
-# You DON'T have to install Mono.
-# You MUST install .NET Framework 3.5.
-# You MUST install RXMODEL.
+# During the first compose-up some install wizards will be appeared.
+# DO NOT install:
+#   - Mono
+# Install:
+#   - .NET Framework 3.5
+#   - RXMODEL
+# These will be installed in `./wine`.
 ```
 
-- *Chernobyl_Installer.zip* and *chernobyl04.zip* will be downloaded from [archive.org](https://web.archive.org/web/*/https://www.simgenics.com/downloads/*).
-- During the first compose-up the simulator will be installed.
+NOTE: The simulator *Chernobyl_Installer.zip* and the patch *chernobyl04.zip* will be downloaded from [the simgenics.com archive](https://web.archive.org/web/*/https://www.simgenics.com/downloads/*).
 
 ## Patch
 
