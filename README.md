@@ -15,7 +15,7 @@ docker compose up
 # These will be installed in `./wine`.
 ```
 
-NOTE: The simulator *Chernobyl_Installer.zip* and the patch *chernobyl04.zip* will be downloaded from [the simgenics.com archive](https://web.archive.org/web/*/https://www.simgenics.com/downloads/*).
+NOTE: The simulator *Chernobyl_Installer.zip* and the patch *chernobyl04.zip* will be downloaded from simgenics.com([archive](https://web.archive.org/web/*/https://www.simgenics.com/downloads/*)).
 
 ## Patch
 
