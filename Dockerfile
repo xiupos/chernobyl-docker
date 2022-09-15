@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
   && apt-key add winehq.key && rm winehq.key \
   && add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' \
   && apt-get update && apt-get install -y --install-recommends winehq-stable \
-  && apt-get clean && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /var/lib/apt/lists/* \
   && wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/bin/winetricks \
   && chmod +x /usr/bin/winetricks
 
