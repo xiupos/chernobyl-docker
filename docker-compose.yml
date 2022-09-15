@@ -16,7 +16,7 @@ services:
       - /dev/snd:/dev/snd
       - /dev/dri:/dev/dri
     command: >
-      bash -c "
+      sh -c "
         wineboot --init &&
         winetricks dotnet35sp1 &&
         wine /chernobyl/installer/setup.exe &&

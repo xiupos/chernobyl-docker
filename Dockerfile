@@ -1,18 +1,7 @@
-FROM ubuntu:20.04
+FROM i386/alpine:latest
 
 # Install wine
-RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg2 \
-    software-properties-common \
-    unzip \
-    cabextract \
-  && dpkg --add-architecture i386 \
-  && wget -nc https://dl.winehq.org/wine-builds/winehq.key \
-  && apt-key add winehq.key && rm winehq.key \
-  && add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' \
-  && apt-get update && apt-get install -y --install-recommends winehq-stable \
-  && rm -rf /var/lib/apt/lists/* \
+RUN apk add --no-cache wget unzip wine cabextract \
   && wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/bin/winetricks \
   && chmod +x /usr/bin/winetricks
 
