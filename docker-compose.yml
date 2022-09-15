@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  wine:
+    build: .
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ${HOME}/.Xauthority:/root/.Xauthority
+      - ${HOME}/.vdrift:/root/.vdrift
+      - ./wine:/root/.wine
+      - ./patch.sh:/patch.sh:ro
+    devices:
+      - /dev/input:/dev/input
+
+      - /dev/snd:/dev/snd
+      - /dev/dri:/dev/dri
+    command: >
+      bash -c "
+        wineboot --init &&
+        winetricks dotnet35sp1 &&
+        wine /chernobyl/installer/setup.exe &&
+        sleep infinity
+      "
