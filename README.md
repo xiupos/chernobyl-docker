@@ -22,7 +22,7 @@ NOTE: The simulator *Chernobyl_Installer.zip* and the patch *chernobyl04.zip* wi
 Run the following command **after the first compose-up**:
 
 ```bash
-docker compose run --rm wine bash patch.sh
+docker compose run --rm wine sh patch.sh
 ```
 
 ## Uninstall
