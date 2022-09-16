@@ -47,4 +47,6 @@ docker compose down --rmi all --volumes --remove-orphans
 
 - [RBMK Reactor Simulator... think you can avoid a meltdown/explosion? : chernobyl](https://www.reddit.com/r/chernobyl/comments/bu8obn/comment/eqrz6zn/)
 
+- [Procedure for RBMK-1000](https://traezm.sodenoshita.com/html/PRBMK.html)
+
 - [チェルノブイリ原発シミュレーター・Tips - おめが？日記_(2)](https://omega.hatenadiary.jp/entry/2021/01/28/214431)
