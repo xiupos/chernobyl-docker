@@ -1,5 +1,7 @@
 FROM i386/alpine:latest
 
+ENV WINEARCH=win32
+
 # Install wine
 RUN apk add --no-cache wget unzip wine cabextract \
   && wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/bin/winetricks \
@@ -12,5 +14,3 @@ RUN wget https://web.archive.org/web/20201101221525/https://www.simgenics.com/do
   && unzip chernobyl04.zip && rm chernobyl04.zip \
   && mkdir /chernobyl && mv /Chernobyl\ Installer/Installer /chernobyl/installer && rm -rf /Chernobyl\ Installer/ \
   && mv chernobyl04.ICD /chernobyl
-
-ENV WINEARCH=win32

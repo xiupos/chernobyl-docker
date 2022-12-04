@@ -6,15 +6,10 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
-      - ${HOME}/.Xauthority:/root/.Xauthority
-      - ${HOME}/.vdrift:/root/.vdrift
+      - ${XAUTHORITY}:/root/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - ./wine:/root/.wine
       - ./patch.sh:/patch.sh:ro
-    devices:
-      - /dev/input:/dev/input
-
-      - /dev/snd:/dev/snd
-      - /dev/dri:/dev/dri
     command: >
       sh -c "
         wineboot --init &&
