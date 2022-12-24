@@ -8,11 +8,11 @@ services:
     volumes:
       - ${XAUTHORITY}:/root/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./wine:/root/.wine
+      - ./wine:/root/.wine32
       - ./patch.sh:/patch.sh:ro
     command: >
       sh -c "
-        wineboot --init &&
+        wine wineboot --init &&
         winetricks dotnet35sp1 &&
         wine /chernobyl/installer/setup.exe &&
         sleep infinity

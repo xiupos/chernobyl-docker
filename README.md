@@ -50,3 +50,5 @@ docker compose down --rmi all --volumes --remove-orphans
 - [Procedure for RBMK-1000](https://traezm.sodenoshita.com/html/PRBMK.html)
 
 - [チェルノブイリ原発シミュレーター・Tips - おめが？日記_(2)](https://omega.hatenadiary.jp/entry/2021/01/28/214431)
+
+- [IL2HorusTeam/docker-wine](https://github.com/IL2HorusTeam/docker-wine)
