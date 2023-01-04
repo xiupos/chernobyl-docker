@@ -44,7 +44,5 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && wget https://web.archive.org/web/20210201092558/https://www.simgenics.com/downloads/chernobyl04.zip \
   && unzip Chernobyl_Installer.zip && rm Chernobyl_Installer.zip \
   && unzip chernobyl04.zip && rm chernobyl04.zip \
-  && mkdir /chernobyl && mv /Chernobyl\ Installer/Installer /chernobyl/installer && rm -rf /Chernobyl\ Installer/ \
+  && mv /Chernobyl\ Installer/Installer /chernobyl && rm -rf /Chernobyl\ Installer/ \
   && mv chernobyl04.ICD /chernobyl
-
-# ENV WINEDLLOVERRIDES=""
