@@ -6,6 +6,7 @@ ENV WINEVERSION=$WINEVERSION
 ENV WINEHOME="/root"
 ENV WINEPREFIX="$WINEHOME/.wine32"
 ENV WINEARCH="win32"
+ENV WINEDLLOVERRIDES="mscoree=d;mshtml=d"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && dpkg --add-architecture i386 \
@@ -18,6 +19,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     gnupg2 \
     wget \
     unzip \
+    xauth \
+    xvfb \
   && mkdir -p $WINEPREFIX \
   && wget https://dl.winehq.org/wine-builds/winehq.key -O - | apt-key add - \
   && echo "deb https://dl.winehq.org/wine-builds/debian buster main" > /etc/apt/sources.list.d/winehq.list \
@@ -35,9 +38,13 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt purge --auto-remove -y \
   && apt autoremove --purge -y \
   && rm -rf /var/lib/apt/lists/* \
+  && xvfb-run -a wine wineboot --init \
+  && xvfb-run -a winetricks -q corefonts \
   && wget https://web.archive.org/web/20201101221525/https://www.simgenics.com/downloads/Chernobyl_Installer.zip \
   && wget https://web.archive.org/web/20210201092558/https://www.simgenics.com/downloads/chernobyl04.zip \
   && unzip Chernobyl_Installer.zip && rm Chernobyl_Installer.zip \
   && unzip chernobyl04.zip && rm chernobyl04.zip \
   && mkdir /chernobyl && mv /Chernobyl\ Installer/Installer /chernobyl/installer && rm -rf /Chernobyl\ Installer/ \
   && mv chernobyl04.ICD /chernobyl
+
+# ENV WINEDLLOVERRIDES=""

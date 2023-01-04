@@ -5,6 +5,7 @@ services:
     network_mode: "host"
     environment:
       - DISPLAY=${DISPLAY}
+      - WINEDLLOVERRIDES=
     volumes:
       - ${XAUTHORITY}:/root/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix
@@ -12,7 +13,6 @@ services:
       - ./patch.sh:/patch.sh:ro
     command: >
       sh -c "
-        wine wineboot --init &&
         winetricks dotnet35sp1 &&
         wine /chernobyl/installer/setup.exe &&
         sleep infinity
