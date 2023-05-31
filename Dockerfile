@@ -1,4 +1,4 @@
-FROM i386/debian:buster-slim
+FROM i386/debian:bullseye-slim
 
 ARG WINEVERSION="5.0"
 
@@ -23,12 +23,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     xvfb \
   && mkdir -p $WINEPREFIX \
   && wget https://dl.winehq.org/wine-builds/winehq.key -O - | apt-key add - \
-  && echo "deb https://dl.winehq.org/wine-builds/debian buster main" > /etc/apt/sources.list.d/winehq.list \
-  && wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/Release.key -O - | apt-key add - \
-  && echo "deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10 ./" > /etc/apt/sources.list.d/obs.list \
+  && echo "deb https://dl.winehq.org/wine-builds/debian bullseye main" > /etc/apt/sources.list.d/winehq.list \
+  && wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11/Release.key -O - | apt-key add - \
+  && echo "deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_11 ./" > /etc/apt/sources.list.d/obs.list \
   && { \
     echo "Package: *wine* *wine*:i386"; \
-    echo "Pin: version $WINEVERSION~buster"; \
+    echo "Pin: version $WINEVERSION~bullseye"; \
     echo "Pin-Priority: 1001"; \
     } > /etc/apt/preferences.d/winehq.pref \
   && apt-get update \
